@@ -16,7 +16,11 @@ func (e *Engine) handleNextFloor(event domain.Event) {
 		return
 	}
 
+	// Прибавляем этаж при
+	// Переходе на следующий
 	ps.CurrentFloor++
+
+	// Сохраняем время входа на этаж
 	ps.FloorEnterTime = event.Time
 	e.logNextFloor(event)
 }
@@ -32,6 +36,8 @@ func (e *Engine) handlePreviousFloor(event domain.Event) {
 		return
 	}
 
+	// Если этаж больше первого(нулевого)
+	// Тогда можем перейти на previous этаж
 	if ps.CurrentFloor > 0 {
 		ps.CurrentFloor--
 		ps.FloorEnterTime = event.Time

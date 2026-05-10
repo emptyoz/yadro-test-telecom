@@ -19,6 +19,7 @@ type rawConfig struct {
 func Load(path string) (domain.Config, error) {
 	var raw rawConfig
 
+	// Открытый файл events
 	data, err := os.ReadFile(path)
 	if err != nil {
 		return domain.Config{}, fmt.Errorf("read config %q: %w", path, err)

@@ -39,6 +39,8 @@ type PlayerState struct {
 	BossKillDuration time.Duration
 }
 
+// Данные по этажам
+// Кол-во этажей, монстров
 type Config struct {
 	Floors   int
 	Monsters int
@@ -53,6 +55,7 @@ type GameStats struct {
 	Logs    []string
 }
 
+// Event входящий
 type Event struct {
 	Time       time.Duration
 	PlayerID   int
@@ -61,6 +64,7 @@ type Event struct {
 	ExtraParam string
 }
 
+// Финальный репорт
 type FinalRow struct {
 	State     string
 	PlayerID  int

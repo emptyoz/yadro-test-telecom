@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// Форматирование времени
 func FormatTime(d time.Duration) string {
 	h := int(d.Hours())
 	m := int(d.Minutes()) % 60
@@ -14,6 +15,8 @@ func FormatTime(d time.Duration) string {
 	return fmt.Sprintf("%02d:%02d:%02d", h, m, s)
 }
 
+// Перевод строки типа: [14:00:00]
+// В формат time.Duration
 func TimeIntoDuration(date string) (time.Duration, error) {
 	date = strings.Trim(date, "[]")
 

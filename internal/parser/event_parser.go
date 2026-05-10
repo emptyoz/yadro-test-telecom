@@ -43,6 +43,8 @@ func ParseEvent(path string) ([]domain.Event, error) {
 	return events, nil
 }
 
+// Парсинг файла event
+// Построчно: [14:00:00] 1 1
 func parseLine(line string, lineNo int) (domain.Event, bool, error) {
 	fields := strings.Fields(line)
 
@@ -76,6 +78,9 @@ func parseLine(line string, lineNo int) (domain.Event, bool, error) {
 	}, true, nil
 }
 
+// Парсинг extra параметров
+// В IntParams и ExtraParam
+// ExtraParam может быть multistring
 func parseExtra(fields []string) (int, string) {
 	if len(fields) == 3 {
 		return 0, ""
